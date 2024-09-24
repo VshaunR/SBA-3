@@ -12,6 +12,7 @@ todoForm.addEventListener('submit',(e)=>{
   e.preventDefault()
   if(userInput.value ===''){
     userInput.focus();
+    
     return ;
   }
   add(userInput.value)
@@ -49,6 +50,7 @@ todoList.addEventListener('click',(e)=>{
 })
 
 delList(del,entry,edit)
+editList(entry,edit)
 // let li= document.createElement('li');
 // let edit = document.createElement('button');
 // let del = document.createElement('button');
@@ -78,7 +80,7 @@ function delList(del,entry,edit){
     let parentClass=entry.className;
     console.log(entry.className)
     let childClass=e.target.className;
-    console.log(e.target.className)
+    // console.log(e.target.className)
     if(parentClass==childClass){
         del.remove(del)
         entry.remove(entry)
@@ -88,17 +90,24 @@ function delList(del,entry,edit){
 };
 
 
-function editList(del,entry,edit){
-  edit.addEventListener('click',(e)=>{
+function editList(entry,edit){
+  let input;
+  entry.addEventListener('input',(e)=>{
     // console.log(e.target.parentElement.className)
+    console.log(edit)
     let parentClass=entry.className;
     console.log(entry.className)
     let childClass=e.target.className;
     console.log(e.target.className)
     if(parentClass==childClass){
-      entry.value= userInput
-      
+      entry.focus()
+       input= entry.value;
+      console.log(input)
+      edit.addEventListener('click',()=>{
+        userInput.focus();
+      })
     }
   });
+
 };
 

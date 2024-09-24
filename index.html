@@ -15,11 +15,13 @@
   <main id="main">
     <div class="list-container">
       <form id="todo-form">
-        <input id ="user-input" type="text">
+        <input id ="user-input" type="text" minlength="8" title="You must enter a input" required>
         <input type="submit" >
       </form>
       <form id="todo-list">
             <div class="list">
+              <p id="todo"></p>
+              <p id="date"></p>
               
             </div>
       </form>
