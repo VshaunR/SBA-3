@@ -18,42 +18,87 @@ todoForm.addEventListener('submit',(e)=>{
   userInput.value='';
   userInput.focus()
 
-
+  
 
 
 });
 
 let count=0;
 function add(userInput){
-
-let li= document.createElement('li');
-let del = document.createElement('button');
-del.textContent= 'Delete';
+  let list = document.querySelector('list');
+  let entry = document.createElement('input');
+  let edit = document.createElement('input');
+  let del = document.createElement('input');
+  entry.value = userInput;
+// list.setAttribute('id',count);
+edit.setAttribute('type','submit');
+edit.setAttribute('value','Edit');
+del.setAttribute('type','submit');
+del.setAttribute('value','Delete');
 del.setAttribute('class',count);
-li.setAttribute('class',count);
-let listId ;
-let delId
-console.log(delId,listId)
-li.textContent= userInput
-todoList.appendChild(li)
-li.appendChild(del);
- count ++
+edit.setAttribute('class',count);
+entry.setAttribute('class',count);
+todoList.appendChild(entry);
+todoList.appendChild(edit);
+todoList.appendChild(del);
 
- delList(del,li)
+count++;
+todoList.addEventListener('click',(e)=>{
+  e.preventDefault();
+ 
+})
+
+delList(del,entry,edit)
+// let li= document.createElement('li');
+// let edit = document.createElement('button');
+// let del = document.createElement('button');
+
+// del.textContent= 'Delete';
+// edit.textContent= 'Edit';
+// del.setAttribute('class',count);
+// edit.setAttribute('class',count);
+// li.setAttribute('class',count);
+// let listId ;
+// let delId
+// console.log(delId,listId)
+// li.textContent= userInput
+// todoList.appendChild(li)
+// li.appendChild(edit);
+// li.appendChild(del);
+
+//  count ++
+//   editInput(edit,li)
+//   delList(del,li)
 
 }
 
-function delList(del,li){
+function delList(del,entry,edit){
   del.addEventListener('click',(e)=>{
     // console.log(e.target.parentElement.className)
-    let parentClass=li.className;
-    console.log(li.className)
+    let parentClass=entry.className;
+    console.log(entry.className)
     let childClass=e.target.className;
     console.log(e.target.className)
     if(parentClass==childClass){
         del.remove(del)
-        li.remove(li)
-     
+        entry.remove(entry)
+        edit.remove(edit)
     }
   });
-}
+};
+
+
+function editList(del,entry,edit){
+  edit.addEventListener('click',(e)=>{
+    // console.log(e.target.parentElement.className)
+    let parentClass=entry.className;
+    console.log(entry.className)
+    let childClass=e.target.className;
+    console.log(e.target.className)
+    if(parentClass==childClass){
+      entry.value= userInput
+      
+    }
+  });
+};
+
