@@ -51,7 +51,8 @@ function delList(del,li){
     let childClass=e.target.className;
     console.log(e.target.className)
     if(parentClass==childClass){
-        del.remove(li)
+        del.remove(del)
+        li.remove(li)
      
     }
   });
