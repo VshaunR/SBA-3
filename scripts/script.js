@@ -181,7 +181,7 @@ arrayObj.push(obj)
 console.log(arrayObj)
 
 delList(del,input,date,arrayObj);
-editList(input,date,arrayObj,count);
+// editList(input,date,arrayObj,count);
 count ++;
 }
 
@@ -205,37 +205,28 @@ function delList(del,input,date){
   });
 };
 
-function editList(input,date,arrayObj){
-  let newInput;
-  input.addEventListener('input',(e)=>{
-    // console.log(e.target.parentElement.className)
+// function editList(input,date,arrayObj){
+//   let newInput;
+//   input.addEventListener('input',(e)=>{
+//     // console.log(e.target.parentElement.className)
    
-    let parentClass=input.className;
-    console.log(input.className)
-    let childClass=date.className;
-    console.log(date.className)
-    if(parentClass==e.target.className){
-        input.focus()
-        newInput= input.value;
-        console.log(newInput);
-        let temp={}
-        let index;
-        arrayObj.filter((filtered)=>{
-          // console.log(filtered.id)
-          if(filtered.id ===Number(parentClass)){
-            temp={
-                item:newInput,
-                date:date.value,
-                id:filtered.id
-            }
-            index= filtered.id
-          }
-        })
-        arrayObj.splice(index,1)
-        arrayObj.push(temp)
-            console.log(arrayObj)
+//     let parentClass=input.className;
+//     console.log(input.className)
+//     let childClass=date.className;
+//     console.log(date.className)
+//     if(parentClass==e.target.className){
+//         input.focus()
+//         newInput= input.value;
+//         console.log(newInput);
+//         let temp={}
+//         let index;
+//         arrayObj.filter((filtered)=>{
+//           // console.log(filtered.id)
+        
+//         })
        
-    }
-  });
-  console.log(arrayObj)
-};
+       
+//     }
+//   });
+//   console.log(arrayObj)
+// };
