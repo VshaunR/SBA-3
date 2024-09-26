@@ -9,25 +9,35 @@
 </head>
 <body>
 <div class="container">
-  <header class="harder">
+  <header class="header">
     <h1 id="title"></h1>
   </header>
   <main id="main">
+ <div class="form-container">
+  <form id="todo-form">
+    <input id ="user-input" type="text"  required>
+    <input id ="user-date" type="date"  min="" required>
+    <input type="submit" >
+  </form>
+  <form id="filter-form">
+    <input id ="filter-id" type="text"  >
+    <input id ="filter-date" type="date"  min="" >
+    <input type="submit" >
+  </form>
+ </div>
     <div class="list-container">
-      <form id="todo-form">
-        <input id ="user-input" type="text"  required>
-        <input id ="user-date" type="date"  min="" required>
-        <input type="submit" >
-      </form>
-      <form id="todo-list">
-            <div class="list">
-              <p id="todo"></p>
-              <p id="date"></p>
-              
-            </div>
-      </form>
+      <ul id="todo-list">
+
+      </ul>
+    
+      <ul id="filter-list">
+
+      </ul>
     </div>
+      
+    
   </main>
+
 </div>
 </body>
 </html>
