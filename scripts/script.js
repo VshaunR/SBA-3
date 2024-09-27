@@ -141,6 +141,10 @@ todo.addEventListener('submit',(e)=>{
   
   if(item.length <6){
     return;
+  };
+  if(item.value ==""){
+    alert('Enter a Item!')
+    return;
   }
   add(item.value)
   item.value=``;
@@ -148,6 +152,7 @@ todo.addEventListener('submit',(e)=>{
   render(list)
   });
   
+
 let count=0;
   function add(item){
     let obj={
@@ -161,20 +166,30 @@ console.log(list)
 
   };
 
+
+
   function render(list){
     let HTML= ``
     let accumulator=''
       list.forEach((item)=>{
      
-       
+       let del= document.createElement('button')
+       del.setAttribute('class','delete');
+       del.textContent='Delete'
         HTML =`
         <div class= 'render-list'>
-          <div>${item.item} <button class='del'>Delete</button></div>
-        
+          <div>${item.id}${item.item} <button class = 'delete'id='${item.id}'>${del.textContent}</button></div>
+          
         </div>
-        
+      
         `
+   
+        // console.log(del)
         accumulator += HTML
+        document.querySelector('.delete').addEventListener('click',()=>{
+          list.splice(item.id,1);
+          render(list)
+        });
       });
       listsItems.innerHTML= accumulator;
   }
