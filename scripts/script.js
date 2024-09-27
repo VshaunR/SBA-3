@@ -134,65 +134,6 @@ srcArr.forEach((src)=>{
 
 
 
-// let list=[];
-
-// todo.addEventListener('submit',(e)=>{
-//   e.preventDefault(e);
-  
-//   if(item.length <6){
-//     return;
-//   };
-//   if(item.value ==""){
-//     alert('Enter a Item!')
-//     return;
-//   }
-//   add(item.value)
-//   item.value=``;
-//   item.focus();
-//   render(list)
-//   });
-  
-
-// let count=0;
-//   function add(item){
-//     let obj={
-//       item:item,
-//       id:count,
-//     }
-//     list.push(obj)
-//     count++
-
-// console.log(list)
-
-//   };
-
-
-
-//   function render(list){
-//     let HTML= ``
-//     let accumulator=''
-//       list.forEach((item)=>{
-     
-//        let del= document.createElement('button')
-//        del.setAttribute('class','delete');
-//        del.textContent='Delete'
-//         HTML =`
-//         <div class= 'render-list'>
-//           <div>${item.id}${item.item} <button class = 'delete'id='${item.id}'>${del.textContent}</button></div>
-          
-//         </div>
-      
-//         `
-   
-//         // console.log(del)
-//         accumulator += HTML
-//         document.querySelector('.delete').addEventListener('click',()=>{
-//           list.splice(item.id,1);
-//           render(list)
-//         });
-//       });
-//       listsItems.innerHTML= accumulator;
-//   }
 
 let arrayObj=[
 
@@ -255,19 +196,19 @@ arrayObj.push(obj)
 console.log(arrayObj)
 
 delList(del,input,arrayObj);
-// editList(input,date,arrayObj,count);
+
 count ++;
 }
 
 
 function delList(del,input){
   del.addEventListener('click',(e)=>{
-    // console.log(e.target.parentElement.className)
+   
     let parentClass=input.className;
 
     console.log(input.className)
     let childClass=e.target.className;
-    // console.log(e.target.className)
+  
     if(parentClass==childClass){
         del.remove(del);
         input.remove(input);
@@ -323,3 +264,33 @@ let filterDate= document.getElementById('filter-date')
  
 //   });
 // };
+
+let footer = document.getElementById('footer-container');
+
+let footerTabs= footer.querySelectorAll('div');
+
+footer.addEventListener('click',(e)=>{
+  
+  footerTabs.forEach((tab)=>{
+   
+    if(e.target.classList.contains('active')){
+      e.target.classList.remove('active')
+    }else{
+      
+      e.target.classList.add('active')
+  
+    }
+  });
+  footerTabs.forEach((tab)=>{
+    console.log(tab)
+    if(tab.classList.contains('active')){
+      tab.style.backgroundColor=`${tab.textContent}`
+      tab.style.color=`aqua`
+    }else{
+      tab.style.backgroundColor=`transparent`
+      tab.style.color=`white`
+    }
+  })
+
+});
+
