@@ -5,26 +5,9 @@ let main= document.querySelector('main');
 let menuList= document.querySelectorAll('.links');
 
 let todo = document.getElementById('todo');
-let item = document.getElementById('todo');
-
+let item = document.getElementById('item');
+let listsItems= document.getElementById('lists-items')
 // let srcArr=[]
-let srcArr=[
-  {
-    src:'./img/dog.jpg',
-    alt:'a dog'
-  }, {
-    src:'./img/house.jpg',
-    alt:'a house'
-  },
-  {
-    src:'./img/tired.jpg',
-    alt:'so tired'
-  },
-  {
-    src:'./img/random-people.jpg',
-    alt:'so random'
-  }
-];
 
 menu.addEventListener('click',(e)=>{
 
@@ -43,11 +26,6 @@ menu.addEventListener('click',(e)=>{
 });
 
 
-todo.addEventListener('submit',(e)=>{
-
-
-
-})
 
 
 
@@ -119,7 +97,24 @@ signUp.addEventListener('submit',(e)=>{
 
 let picContainer = document.getElementById('main-pic');
 function displayPics(){
-
+  let srcArr=[
+    {
+      src:'./img/dog.jpg',
+      alt:'a dog'
+    }, {
+      src:'./img/house.jpg',
+      alt:'a house'
+    },
+    {
+      src:'./img/tired.jpg',
+      alt:'so tired'
+    },
+    {
+      src:'./img/random-people.jpg',
+      alt:'so random'
+    }
+  ];
+  
   main.innerHTML=``;
   todo.innerHTML=``
 
@@ -130,17 +125,56 @@ srcArr.forEach((src)=>{
   img.setAttribute('class','pics');
   img.setAttribute('src',src.src);
   img.setAttribute('alt',src.alt)
-main.appendChild(img)
+  main.appendChild(img)
 })
  
-// picContainer.style.display='flex';
-// picContainer.style.flexWrap='wrap';
-// picContainer.style.gap='30px'
-// picContainer.style.margin='1rem'
-
-     
-
 
 };
 
 
+
+
+let list=[];
+
+todo.addEventListener('submit',(e)=>{
+  e.preventDefault(e);
+  
+  if(item.length <6){
+    return;
+  }
+  add(item.value)
+  item.value=``;
+  item.focus();
+  render(list)
+  });
+  
+let count=0;
+  function add(item){
+    let obj={
+      item:item,
+      id:count,
+    }
+    list.push(obj)
+    count++
+
+console.log(list)
+
+  };
+
+  function render(list){
+    let HTML= ``
+    let accumulator=''
+      list.forEach((item)=>{
+     
+       
+        HTML =`
+        <div class= 'render-list'>
+          <div>${item.item} <button class='del'>Delete</button></div>
+        
+        </div>
+        
+        `
+        accumulator += HTML
+      });
+      listsItems.innerHTML= accumulator;
+  }
