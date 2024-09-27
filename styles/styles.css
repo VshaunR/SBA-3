@@ -1,3 +1,7 @@
+body{
+  margin: 0;
+  padding: 0;
+}
 .container{
   height: 100vh;
   height: 100dvh;
@@ -10,12 +14,21 @@
 }
 header{
   grid-area: header;
+  background: rgb(65,66,150);
+background: linear-gradient(90deg, rgba(65,66,150,1) 37%, rgba(0,4,36,0.23993347338935578) 100%, rgba(0,212,255,1) 100%);
+padding: 1rem;
 }
 main{
   grid-area: main;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 footer{
   grid-area: footer;
+  background: rgb(65,66,150);
+  background: linear-gradient(90deg, rgba(65,66,150,1) 37%, rgba(0,4,36,0.23993347338935578) 100%, rgba(0,212,255,1) 100%);
+  padding: 1rem;
 }
 
 .navbar{
@@ -27,7 +40,17 @@ footer{
   justify-content: space-around;
   gap: 30px;
 }
-
+#menu:hover >a{
+  background: rgb(25, 25, 126);
+  color: white;
+  padding: 1rem;
+  transition: all 1s ease-in-out;
+  border-radius: 10%;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
 li{
   list-style: none;
   font-size: 2rem;
@@ -60,4 +83,15 @@ input{
   background-color: rgb(238, 232, 232);
   text-align: center;
     
+}
+.pics{
+  width: 200px;
+  height: 200px;
+  border-radius: 10%;
+  transition: all 1s ease-in;
+}
+.pics:hover{
+  width: 400px;
+  height: 400px;
+  transition: all 1s ease-out;
 }

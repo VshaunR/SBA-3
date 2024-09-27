@@ -1,14 +1,34 @@
 let menu = document.getElementById('menu');
-let main= document.querySelector('main')
-let menuList= document.querySelectorAll('.links')
 
+//query selector
+let main= document.querySelector('main');
+let menuList= document.querySelectorAll('.links');
 
+let todo = document.getElementById('todo');
+let item = document.getElementById('todo');
 
-
+// let srcArr=[]
+let srcArr=[
+  {
+    src:'./img/dog.jpg',
+    alt:'a dog'
+  }, {
+    src:'./img/house.jpg',
+    alt:'a house'
+  },
+  {
+    src:'./img/tired.jpg',
+    alt:'so tired'
+  },
+  {
+    src:'./img/random-people.jpg',
+    alt:'so random'
+  }
+];
 
 menu.addEventListener('click',(e)=>{
 
-  menuList.forEach((item)=>{
+
     // console.log(item.classList)
     if(e.target.classList.contains(`Home`)){
       displayHome();
@@ -16,9 +36,19 @@ menu.addEventListener('click',(e)=>{
       displayAbout();
     }else if(e.target.classList.contains(`Sign-up`)){
       displaySignUp();
+    }else if (e.target.classList.contains('Pics')){
+      displayPics();
     }
-  });
+
 });
+
+
+todo.addEventListener('submit',(e)=>{
+e.preventDefault();
+
+
+})
+
 
 
 function displayHome(arg){
@@ -61,10 +91,10 @@ function displaySignUp(){
   
   <div class="main-container">
     <form id='signUp-form'>
-    <input type='email' id='email' placeholder='Enter Email'>
-    <input type='text' id='userName' placeholder='Enter Your Name'>
-    <input type='password' id='password' placeholder='Enter Password'>
-    <input type ='submit' value='Sign-up' >
+    <input type='email' id='email' placeholder='Enter Email' required>
+    <input type='text' id='user-name' placeholder='Enter Your Name' minlength='7' required>
+    <input type='password' id='password' placeholder='Enter Password' minlength='8' required>
+    <input type ='submit' value='Sign-up' id='sub-btn'>
     
     </form>
   </div>
@@ -73,52 +103,44 @@ function displaySignUp(){
 
 main.innerHTML =HTML;
 let signUp = document.getElementById('signUp-form');
+let email = document.getElementById('email');
+let userName = document.getElementById('user-name');
+let password = document.getElementById('password');
+console.log(email)
 signUp.addEventListener('submit',(e)=>{
   e.preventDefault();
+  email.value=``;
+  userName.value=``;
+  password.value=``;
 });
-console.log(signUp)
-}
+
+};
+
+
+let picContainer = document.getElementById('main-pic');
 function displayPics(){
 
-  let srcArr=[
-    {
-      src:'',
-      alt:''
-    }, {
-      src:'',
-      alt:''
-    },
-    {
-      src:'',
-      alt:''
-    },
-    {
-      src:'',
-      alt:''
-    }
-  ]
-  let HTML =`
-  
-  <div class="main-container">
-      
-  
-  </div>
+  picContainer.innerHTML=``;
+  todo.innerHTML=``
 
 
-`
-}
-function displayCakes(arg){  let HTML =`
-  
-  <div class="main-container">
-      
-  
-  </div>
+srcArr.forEach((src)=>{
+ 
+ let img= document.createElement('img')
+  img.setAttribute('class','pics');
+  img.setAttribute('src',src.src);
+  img.setAttribute('alt',src.alt)
+ picContainer.appendChild(img)
+})
+ 
+picContainer.style.display='flex';
+picContainer.style.flexWrap='wrap';
+picContainer.style.gap='30px'
+picContainer.style.margin='1rem'
+
+     
 
 
-`}
+};
 
-function generateHTML(arg){
 
-  
-
-}
