@@ -44,14 +44,14 @@ menu.addEventListener('click',(e)=>{
 
 
 todo.addEventListener('submit',(e)=>{
-e.preventDefault();
+
 
 
 })
 
 
 
-function displayHome(arg){
+function displayHome(){
   let src= './img/tenor.gif'
   let HTML =`
   
@@ -120,7 +120,7 @@ signUp.addEventListener('submit',(e)=>{
 let picContainer = document.getElementById('main-pic');
 function displayPics(){
 
-  picContainer.innerHTML=``;
+  main.innerHTML=``;
   todo.innerHTML=``
 
 
@@ -130,13 +130,13 @@ srcArr.forEach((src)=>{
   img.setAttribute('class','pics');
   img.setAttribute('src',src.src);
   img.setAttribute('alt',src.alt)
- picContainer.appendChild(img)
+main.appendChild(img)
 })
  
-picContainer.style.display='flex';
-picContainer.style.flexWrap='wrap';
-picContainer.style.gap='30px'
-picContainer.style.margin='1rem'
+// picContainer.style.display='flex';
+// picContainer.style.flexWrap='wrap';
+// picContainer.style.gap='30px'
+// picContainer.style.margin='1rem'
 
      
 
